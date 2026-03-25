@@ -312,8 +312,10 @@ export default function Home() {
             「こんなものを作りたい」というアイデアだけでも大丈夫です。
           </p>
           <form style={{ display: "flex", flexDirection: "column", gap: 16, textAlign: "left" }}>
+
+            {/* お名前 */}
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>お名前</label>
+              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>お名前 <span style={{ color: "#7c5cfc" }}>*</span></label>
               <input type="text" placeholder="山田 太郎" style={{
                 width: "100%", padding: "12px 16px",
                 background: "#1e1e24", border: "1px solid #2a2a35",
@@ -321,8 +323,10 @@ export default function Home() {
                 outline: "none", fontFamily: "inherit",
               }} />
             </div>
+
+            {/* メールアドレス */}
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>メールアドレス</label>
+              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>メールアドレス <span style={{ color: "#7c5cfc" }}>*</span></label>
               <input type="email" placeholder="example@email.com" style={{
                 width: "100%", padding: "12px 16px",
                 background: "#1e1e24", border: "1px solid #2a2a35",
@@ -330,15 +334,55 @@ export default function Home() {
                 outline: "none", fontFamily: "inherit",
               }} />
             </div>
+
+            {/* 作りたいもの（プルダウン） */}
             <div>
-              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>ご依頼内容・メッセージ</label>
-              <textarea placeholder="作りたいものや、お困りのことを教えてください。" rows={5} style={{
+              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>作りたいもの <span style={{ color: "#7c5cfc" }}>*</span></label>
+              <select style={{
+                width: "100%", padding: "12px 16px",
+                background: "#1e1e24", border: "1px solid #2a2a35",
+                borderRadius: 10, color: "#e8e8f0", fontSize: "0.95rem",
+                outline: "none", fontFamily: "inherit", cursor: "pointer",
+              }}>
+                <option value="" style={{ color: "#888899" }}>選択してください</option>
+                <option value="website">Webサイト（会社・ポートフォリオ・LP など）</option>
+                <option value="app">アプリ（業務効率化・サービス系 など）</option>
+                <option value="tool">ツール（自動化・データ管理 など）</option>
+                <option value="other">その他・まだ決まっていない</option>
+              </select>
+            </div>
+
+            {/* 予算感 */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>予算感（ざっくりでOK）</label>
+              <select style={{
+                width: "100%", padding: "12px 16px",
+                background: "#1e1e24", border: "1px solid #2a2a35",
+                borderRadius: 10, color: "#e8e8f0", fontSize: "0.95rem",
+                outline: "none", fontFamily: "inherit", cursor: "pointer",
+              }}>
+                <option value="">特に決まっていない / まず相談したい</option>
+                <option value="under30">〜3万円</option>
+                <option value="30to100">3万円〜10万円</option>
+                <option value="100to300">10万円〜30万円</option>
+                <option value="over300">30万円以上</option>
+              </select>
+            </div>
+
+            {/* イメージ・メッセージ */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.85rem", color: "#888899", marginBottom: 6 }}>
+                ふんわりしたイメージ・やりたいこと
+                <span style={{ fontSize: "0.78rem", color: "#666677", marginLeft: 8 }}>（参考サイトのURLや雰囲気でもOK）</span>
+              </label>
+              <textarea placeholder={"例：「シンプルでかっこいいデザインのポートフォリオを作りたい」\n「注文管理を楽にするアプリが欲しい」\nなど、どんな小さなことでもお気軽に！"} rows={5} style={{
                 width: "100%", padding: "12px 16px",
                 background: "#1e1e24", border: "1px solid #2a2a35",
                 borderRadius: 10, color: "#e8e8f0", fontSize: "0.95rem",
                 outline: "none", fontFamily: "inherit", resize: "vertical",
               }} />
             </div>
+
             <button type="submit" style={{
               width: "100%", padding: 14,
               background: "linear-gradient(135deg, #7c5cfc, #c084fc)",
